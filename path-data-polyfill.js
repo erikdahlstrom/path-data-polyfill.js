@@ -520,8 +520,8 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         var type = seg.type;
 
         if (type === "M") {
-          var x = seg.values[0];
-          var y = seg.values[1];
+          let x = seg.values[0],
+              y = seg.values[1];
 
           absolutizedPathData.push({type: "M", values: [x, y]});
 
@@ -533,8 +533,8 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (type === "m") {
-          var x = currentX + seg.values[0];
-          var y = currentY + seg.values[1];
+          let x = currentX + seg.values[0],
+              y = currentY + seg.values[1];
 
           absolutizedPathData.push({type: "M", values: [x, y]});
 
@@ -546,8 +546,8 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (type === "L") {
-          var x = seg.values[0];
-          var y = seg.values[1];
+          let x = seg.values[0],
+              y = seg.values[1];
 
           absolutizedPathData.push({type: "L", values: [x, y]});
 
@@ -556,8 +556,8 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (type === "l") {
-          var x = currentX + seg.values[0];
-          var y = currentY + seg.values[1];
+          let x = currentX + seg.values[0],
+              y = currentY + seg.values[1];
 
           absolutizedPathData.push({type: "L", values: [x, y]});
 
@@ -566,12 +566,12 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (type === "C") {
-          var x1 = seg.values[0];
-          var y1 = seg.values[1];
-          var x2 = seg.values[2];
-          var y2 = seg.values[3];
-          var x = seg.values[4];
-          var y = seg.values[5];
+          let x1 = seg.values[0],
+              y1 = seg.values[1],
+              x2 = seg.values[2],
+              y2 = seg.values[3],
+              x = seg.values[4],
+              y = seg.values[5];
 
           absolutizedPathData.push({type: "C", values: [x1, y1, x2, y2, x, y]});
 
@@ -580,12 +580,12 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (type === "c") {
-          var x1 = currentX + seg.values[0];
-          var y1 = currentY + seg.values[1];
-          var x2 = currentX + seg.values[2];
-          var y2 = currentY + seg.values[3];
-          var x = currentX + seg.values[4];
-          var y = currentY + seg.values[5];
+          let x1 = currentX + seg.values[0],
+              y1 = currentY + seg.values[1],
+              x2 = currentX + seg.values[2],
+              y2 = currentY + seg.values[3],
+              x = currentX + seg.values[4],
+              y = currentY + seg.values[5];
 
           absolutizedPathData.push({type: "C", values: [x1, y1, x2, y2, x, y]});
 
@@ -594,10 +594,10 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (type === "Q") {
-          var x1 = seg.values[0];
-          var y1 = seg.values[1];
-          var x = seg.values[2];
-          var y = seg.values[3];
+          let x1 = seg.values[0],
+              y1 = seg.values[1],
+              x = seg.values[2],
+              y = seg.values[3];
 
           absolutizedPathData.push({type: "Q", values: [x1, y1, x, y]});
 
@@ -606,10 +606,10 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (type === "q") {
-          var x1 = currentX + seg.values[0];
-          var y1 = currentY + seg.values[1];
-          var x = currentX + seg.values[2];
-          var y = currentY + seg.values[3];
+          let x1 = currentX + seg.values[0],
+              y1 = currentY + seg.values[1],
+              x = currentX + seg.values[2],
+              y = currentY + seg.values[3];
 
           absolutizedPathData.push({type: "Q", values: [x1, y1, x, y]});
 
@@ -618,8 +618,8 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (type === "A") {
-          var x = seg.values[5];
-          var y = seg.values[6];
+          let x = seg.values[5],
+              y = seg.values[6];
 
           absolutizedPathData.push({
             type: "A",
@@ -631,8 +631,8 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (type === "a") {
-          var x = currentX + seg.values[5];
-          var y = currentY + seg.values[6];
+          let x = currentX + seg.values[5],
+              y = currentY + seg.values[6];
 
           absolutizedPathData.push({
             type: "A",
@@ -644,34 +644,34 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (type === "H") {
-          var x = seg.values[0];
+          let x = seg.values[0];
           absolutizedPathData.push({type: "H", values: [x]});
           currentX = x;
         }
 
         else if (type === "h") {
-          var x = currentX + seg.values[0];
+          let x = currentX + seg.values[0];
           absolutizedPathData.push({type: "H", values: [x]});
           currentX = x;
         }
 
         else if (type === "V") {
-          var y = seg.values[0];
+          let y = seg.values[0];
           absolutizedPathData.push({type: "V", values: [y]});
           currentY = y;
         }
 
         else if (type === "v") {
-          var y = currentY + seg.values[0];
+          let y = currentY + seg.values[0];
           absolutizedPathData.push({type: "V", values: [y]});
           currentY = y;
         }
 
         else if (type === "S") {
-          var x2 = seg.values[0];
-          var y2 = seg.values[1];
-          var x = seg.values[2];
-          var y = seg.values[3];
+          let x2 = seg.values[0],
+              y2 = seg.values[1],
+              x = seg.values[2],
+              y = seg.values[3];
 
           absolutizedPathData.push({type: "S", values: [x2, y2, x, y]});
 
@@ -680,10 +680,10 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (type === "s") {
-          var x2 = currentX + seg.values[0];
-          var y2 = currentY + seg.values[1];
-          var x = currentX + seg.values[2];
-          var y = currentY + seg.values[3];
+          let x2 = currentX + seg.values[0],
+              y2 = currentY + seg.values[1],
+              x = currentX + seg.values[2],
+              y = currentY + seg.values[3];
 
           absolutizedPathData.push({type: "S", values: [x2, y2, x, y]});
 
@@ -692,8 +692,8 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (type === "T") {
-          var x = seg.values[0];
-          var y = seg.values[1]
+          let x = seg.values[0],
+              y = seg.values[1];
 
           absolutizedPathData.push({type: "T", values: [x, y]});
 
@@ -702,8 +702,8 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (type === "t") {
-          var x = currentX + seg.values[0];
-          var y = currentY + seg.values[1]
+          let x = currentX + seg.values[0],
+              y = currentY + seg.values[1];
 
           absolutizedPathData.push({type: "T", values: [x, y]});
 
@@ -740,8 +740,8 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
 
       for (var seg of pathData) {
         if (seg.type === "M") {
-          var x = seg.values[0];
-          var y = seg.values[1];
+          let x = seg.values[0],
+              y = seg.values[1];
 
           reducedPathData.push({type: "M", values: [x, y]});
 
@@ -753,12 +753,12 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (seg.type === "C") {
-          var x1 = seg.values[0];
-          var y1 = seg.values[1];
-          var x2 = seg.values[2];
-          var y2 = seg.values[3];
-          var x = seg.values[4];
-          var y = seg.values[5];
+          let x1 = seg.values[0],
+              y1 = seg.values[1],
+              x2 = seg.values[2],
+              y2 = seg.values[3],
+              x = seg.values[4],
+              y = seg.values[5];
 
           reducedPathData.push({type: "C", values: [x1, y1, x2, y2, x, y]});
 
@@ -770,8 +770,8 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (seg.type === "L") {
-          var x = seg.values[0];
-          var y = seg.values[1];
+          let x = seg.values[0],
+              y = seg.values[1];
 
           reducedPathData.push({type: "L", values: [x, y]});
 
@@ -780,7 +780,7 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (seg.type === "H") {
-          var x = seg.values[0];
+          let x = seg.values[0];
 
           reducedPathData.push({type: "L", values: [x, currentY]});
 
@@ -788,7 +788,7 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (seg.type === "V") {
-          var y = seg.values[0];
+          let y = seg.values[0];
 
           reducedPathData.push({type: "L", values: [currentX, y]});
 
@@ -796,10 +796,10 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (seg.type === "S") {
-          var x2 = seg.values[0];
-          var y2 = seg.values[1];
-          var x = seg.values[2];
-          var y = seg.values[3];
+          let x2 = seg.values[0],
+              y2 = seg.values[1],
+              x = seg.values[2],
+              y = seg.values[3];
 
           var cx1, cy1;
 
@@ -822,10 +822,10 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (seg.type === "T") {
-          var x = seg.values[0];
-          var y = seg.values[1];
+          let x = seg.values[0],
+              y = seg.values[1];
 
-          var x1, y1;
+          let x1, y1;
 
           if (lastType === "Q" || lastType === "T") {
             x1 = currentX + (currentX - lastControlX);
@@ -836,10 +836,10 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
             y1 = currentY;
           }
 
-          var cx1 = currentX + 2 * (x1 - currentX) / 3;
-          var cy1 = currentY + 2 * (y1 - currentY) / 3;
-          var cx2 = x + 2 * (x1 - x) / 3;
-          var cy2 = y + 2 * (y1 - y) / 3;
+          let cx1 = currentX + 2 * (x1 - currentX) / 3,
+              cy1 = currentY + 2 * (y1 - currentY) / 3,
+              cx2 = x + 2 * (x1 - x) / 3,
+              cy2 = y + 2 * (y1 - y) / 3;
 
           reducedPathData.push({type: "C", values: [cx1, cy1, cx2, cy2, x, y]});
 
@@ -851,15 +851,14 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (seg.type === "Q") {
-          var x1 = seg.values[0];
-          var y1 = seg.values[1];
-          var x = seg.values[2];
-          var y = seg.values[3];
-
-          var cx1 = currentX + 2 * (x1 - currentX) / 3;
-          var cy1 = currentY + 2 * (y1 - currentY) / 3;
-          var cx2 = x + 2 * (x1 - x) / 3;
-          var cy2 = y + 2 * (y1 - y) / 3;
+          let x1 = seg.values[0],
+              y1 = seg.values[1],
+              x = seg.values[2],
+              y = seg.values[3],
+              cx1 = currentX + 2 * (x1 - currentX) / 3,
+              cy1 = currentY + 2 * (y1 - currentY) / 3,
+              cx2 = x + 2 * (x1 - x) / 3,
+              cy2 = y + 2 * (y1 - y) / 3;
 
           reducedPathData.push({type: "C", values: [cx1, cy1, cx2, cy2, x, y]});
 
@@ -871,13 +870,13 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
         }
 
         else if (seg.type === "A") {
-          var r1 = seg.values[0];
-          var r2 = seg.values[1];
-          var angle = seg.values[2];
-          var largeArcFlag = seg.values[3];
-          var sweepFlag = seg.values[4];
-          var x = seg.values[5];
-          var y = seg.values[6];
+          let r1 = seg.values[0],
+              r2 = seg.values[1],
+              angle = seg.values[2],
+              largeArcFlag = seg.values[3],
+              sweepFlag = seg.values[4],
+              x = seg.values[5],
+              y = seg.values[6];
 
           if (r1 === 0 || r2 === 0) {
             reducedPathData.push({type: "C", values: [currentX, currentY, x, y, x, y]});
@@ -887,9 +886,9 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
           }
           else {
             if (currentX !== x || currentY !== y) {
-              var curves = arcToCubicCurves(currentX, currentY, x, y, r1, r2, angle, largeArcFlag, sweepFlag);
+              let curves = arcToCubicCurves(currentX, currentY, x, y, r1, r2, angle, largeArcFlag, sweepFlag);
 
-              for (var curve of curves) {
+              for (let curve of curves) {
                 reducedPathData.push({type: "C", values: curve});
 
                 currentX = x;
@@ -956,7 +955,7 @@ if (!SVGPathElement.prototype.getPathData || !SVGPathElement.prototype.setPathDa
           return clonePathData(this[symbols.cachedPathData]);
         }
         else {
-          var pathData = parsePathDataString(this.getAttribute("d") || "");
+          let pathData = parsePathDataString(this.getAttribute("d") || "");
           this[symbols.cachedPathData] = clonePathData(pathData);
           return pathData;
         }
